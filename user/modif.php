@@ -38,5 +38,5 @@ mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALU
 
 mysqli_close($sql);
 
-echo "Success\n";
+echo '<html><body><button><a href="../home/index_co.html">Mot de passe modifié avec succès.0</a></button></body></html>';
 ?>
