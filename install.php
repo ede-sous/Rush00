@@ -21,10 +21,11 @@ if (!(mysqli_query($sql, "CREATE TABLE products (
 	name VARCHAR(255) NOT NULL,
 	color VARCHAR(255) NOT NULL,
 	cereals VARCHAR(255) NOT NULL,
+	price FLOAT NOT NULL,
 	PRIMARY KEY (id));")))
 	return (print("Problem creating the table.\n"));
 
-if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `cereals`) VALUES (NULL,'chimey','blonde', 'houblon')")))
+if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `cereals`, `price`) VALUES (NULL,'chimay','blonde', 'houblon', '1.65')")))
 	return (print("Problem creating beer.\n"));
 
 if (!(mysqli_query($sql,"INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL,'ede-sous','".hash("whirlpool", "patate")."', '1')")))
