@@ -26,12 +26,12 @@
 			<h1><u>Welcome to this Wonderful Website !</u></h1><br/>
 			<h3>Create your Wonderful account !</h3>
 		</HEAD>
-		<BODY>
+		<body>
 			<form action="create.php" method="post">
 				<br/>Identifiant: <input type="text" name="login" value="" /></a>
 			<br/><br/>
 			Mot de passe: <input type="password" name="passwd" value="" />
 			<input type="submit" value="OK" name="submit">
 			</form>
-		</BODY>
+		</body>
 </HTML>
