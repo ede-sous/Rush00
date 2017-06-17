@@ -18,7 +18,7 @@ $passwd = $_SESSION['passwd'];
 if (auth($login, $passwd, $sql) == true)
 {
 	$_SESSION['logged_on_user'] = $_GET['login'];
-	echo '<html><body><button><a href="../home/index_co.php">Vous êtes connecté</a></button></body></html>';
+	echo '<html><body><button><a href="../home/index.php">Vous êtes connecté</a></button></body></html>';
 }
 else
 {
