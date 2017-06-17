@@ -11,8 +11,9 @@ if ($_GET['login'] == "" || $_GET['passwd'] == "")
 	echo "ERROR\n";
 	return;
 }
-$_SESSION['login'] = mysqli_real_escape_string($sql, $_GET['login']);
-$_SESSION['passwd'] = mysqli_real_escape_string($sql, $_GET['passwd']);
+
+$_SESSION['login'] = mysqli_real_escape_string($sql, $_POST['login']);
+$_SESSION['passwd'] = mysqli_real_escape_string($sql, $_POST['passwd']);
 
 $login = $_SESSION['login'];
 $passwd = $_SESSION['passwd'];
