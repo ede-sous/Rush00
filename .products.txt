@@ -1,3 +1,21 @@
-Chimey/Blonde/4.8-10%/1.65/Belgique
+Chimey/Blonde/4.8%/1.65/Belgique
 Super Bock/Ambree/5.2%/2.40/Portugal
-Heineken/Blonde/5%/50.25/Pays-Bas
+Heineken/Blonde/5%/3.25/Pays-Bas
+Leffe/Brune/6.5%/2.50/Belgique
+Leffe/Blonde/6.5%/5.60/Belgique
+Pelforth/Blonde/5.8%/3.10/France
+Fischer/Blonde/6%/3.00/1.90/France
+1664/Blonde/5.5%/2.10/France
+Kronenbourg/Blonde/5.3%/3.20/France
+La Chouffe/Blonde/8%/2.90/Belgique
+Sagres/Blonde/5.1%/2.00/Portugal
+Duff/Blonde/4.9%/2.70/Allemagne
+8.6/Blonde/8.6%/2.50/Pays-Bas
+Newcastle/Ambree/4.7%/2.30/Angleterre
+Hoegaarden/Blanche/4.9%/1.80/Belgique
+Affligem/Blonde/7%/2.60/Belgique
+Rince Cochon/Blonde/8.5%/3.00/Belgique
+Kilkenny/Ambree/4.3%/3.00/Irlande
+Carlsberg/Blonde/7.2%/2.20/Danemark
+Tsingtao/Blonde/4.7%/2.50/Chine
+Guiness/Noire/7.5%/3.10/Irlande
