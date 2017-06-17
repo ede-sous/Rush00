@@ -1,33 +1,40 @@
 <?PHP
-$login = $_POST['login'];
-$oldpwd = $_POST['oldpw'];
-$newpwd = $_POST['newpw'];
-
-if($_POST['submit'] !== "OK" || $login === ""|| $oldpwd === ""|| $newpwd === "")
-	return (print("ERROR\n"));
-if ($oldpwd === $newpwd)
-	return (print("Le nouveau mot de passe est identique au ancien.\n"));
-if ($login != str_replace(" ", "", $login) || $oldpwd != str_replace(" ", "", $oldpwd) || $newpwd != str_replace(" ", "", $newpwd))
-	return (print("Contient des Espaces.\n"));
 
 if (!($sql = mysqli_connect("localhost", "root", "superpass")))
 	return (print("Error a se connecter.\n"));
-
 mysqli_select_db($sql, "edegsc");
-if (!mysqli_fetch_array(mysqli_query($sql, "SELECT * FROM Users WHERE login='".mysqli_real_escape_string($sql, $login)."';")))
-		return (print("Compte Inexistant.\n"));
+
+function err($sql, $err)
+{
+	echo $err."\n";
+	mysqli_close($sql);
+}
+
+$login = mysqli_real_escape_string($sql, $_POST["login"]);
+$oldpwd = mysqli_real_escape_string($sql, $_POST["oldpwd"]);
+$newpwd = mysqli_real_escape_string($sql, $_POST["newpwd"]);
+
+if($_POST['submit'] !== "OK" || $login === ""|| $oldpwd === ""|| $newpwd === "")
+	return (err($sql, "ERROR\n"));
+if ($oldpwd === $newpwd)
+	return (err($sql, "Le nouveau mot de passe est identique au ancien.|$newpwd||$oldpwd|\n"));
+if ($login != str_replace(" ", "", $login) || $oldpwd != str_replace(" ", "", $oldpwd) || $newpwd != str_replace(" ", "", $newpwd))
+	return (err($sql, "Contient des Espaces.\n"));
+
+if (!mysqli_fetch_array(mysqli_query($sql, "SELECT * FROM Users WHERE login='".$login."';")))
+		return (err($sql, "Compte Inexistant.\n"));
 
 $oldpwd = hash("whirlpool", $oldpwd);
-if (!($query = mysqli_query($sql, "SELECT * FROM Users WHERE login='".mysqli_real_escape_string($sql, $login)."';")))
-	return (print("Compte Inexistant\n"));
+if (!($query = mysqli_query($sql, "SELECT * FROM Users WHERE login='".$login."';")))
+	return (err($sql, "Compte Inexistant\n"));
 
 if (!($res = mysqli_fetch_array($query)))
-	return (print("Compte Inexistant\n"));
+	return (err($sql, "Compte Inexistant\n"));
 if ($res["passwd"] !== $oldpwd)
-	return (print("L'Ancien mot de passe est faux.\n"));
+	return (err($sql, "L'Ancien mot de passe est faux.\n"));
 
-mysqli_query($sql, "DELETE FROM Users WHERE login='".mysqli_real_escape_string($sql, $login)."';");
-mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL, '".mysqli_real_escape_string($sql, $login)."', '".mysqli_real_escape_string($sql, hash("whirlpool", $newpwd))."', '0')");
+mysqli_query($sql, "DELETE FROM Users WHERE login='".$login."';");
+mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL, '".$login."', '".hash("whirlpool", $newpwd)."', '0')");
 
 mysqli_close($sql);
 
