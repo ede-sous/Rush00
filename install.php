@@ -1,4 +1,5 @@
 <?PHP
+include("./functions/get_prod.php");
 
 $sql = mysqli_connect("localhost", "root", "superpass");
 
@@ -25,8 +26,11 @@ if (!(mysqli_query($sql, "CREATE TABLE products (
 	PRIMARY KEY (id));")))
 	return (print("Problem creating the table.\n"));
 
-if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`) VALUES (NULL,'chimay','blonde', '4.8-10%', '1.65', 'Belgique')")))
+$info = get_products();
+foreach($info as $elem)
+if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`) VALUES (NULL,'".$elem[0]."','".$elem[1]."', '".$elem[2]."', '".$elem[3]."', '".$elem[4]."')")))
 	return (print("Problem creating beer.\n"));
+
 
 if (!(mysqli_query($sql,"INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL,'ede-sous','".hash("whirlpool", "patate")."', '1')")))
 	return (print("Problem creating the admin.\n"));
