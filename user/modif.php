@@ -30,5 +30,6 @@ mysqli_query($sql, "DELETE FROM Users WHERE login='".mysqli_real_escape_string($
 mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL, '".mysqli_real_escape_string($sql, $login)."', '".mysqli_real_escape_string($sql, hash("whirlpool", $newpwd))."', '0')");
 
 mysqli_close($sql);
-echo "OK\n";
+
+echo "Success\n";
 ?>
