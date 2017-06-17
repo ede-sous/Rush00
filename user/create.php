@@ -6,7 +6,7 @@ mysqli_select_db($sql, "edegsc");
 function err($sql)
 {
 	mysqli_close($sql);
-	echo '<html><body><button><a href="../home/index.html">La création de votre compte a échoué.</a></button></body></html>';
+	echo '<html><body><button><a href="../home/index.php">La création de votre compte a échoué.</a></button></body></html>';
 }
 
 $login = mysqli_real_escape_string($sql, $_POST["login"]);
@@ -25,5 +25,5 @@ if (mysqli_fetch_array($query))
 mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL, '".$login."', '".hash("whirlpool", $passwd)."', '0')");
 
 mysqli_close($sql);
-echo '<html><body><button><a href="../home/index.html">Votre compte a été crée.</a></button></body></html>';
+echo '<html><body><button><a href="../home/index.php">Votre compte a été crée.</a></button></body></html>';
 ?>

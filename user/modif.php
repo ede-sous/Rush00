@@ -8,7 +8,7 @@ mysqli_select_db($sql, "edegsc");
 function err($sql)
 {
 	mysqli_close($sql);
-	echo '<html><body><button><a href="../home/index_co.html">La modification du mot de passe a échoué.</a></button></body></html>';
+	echo '<html><body><button><a href="../home/index_co.php">La modification du mot de passe a échoué.</a></button></body></html>';
 }
 
 $login = mysqli_real_escape_string($sql, $_POST["login"]);
@@ -39,5 +39,5 @@ mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALU
 
 mysqli_close($sql);
 
-echo '<html><body><button><a href="../home/index_co.html">Mot de passe modifié avec succès.</a></button></body></html>';
+echo '<html><body><button><a href="../home/index_co.php">Mot de passe modifié avec succès.</a></button></body></html>';
 ?>
