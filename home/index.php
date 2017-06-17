@@ -51,4 +51,11 @@ else
 		</li>
 		</ul>
 	</header>
+    <body>
+        <div style="height:21%; width:14.5%; background-color:black; position:absolute; top:4%;">
+            <img style="width:85%; height:65%; position:relative; left:7.5%; top:5%;" src="../imgs/superbock.jpeg">
+            <a style="color:white; position:relative; top:11%; left:10%;">Super Bock : 2.4€</a>
+            <input style="position:relative; top:15%; left:7.5%; width:85%; text-align:center;" type="submit" name="addppanier" value="Ajouter au Panier"></input>
+        </div>
+	</body>
 </html>
