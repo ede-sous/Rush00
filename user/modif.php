@@ -13,7 +13,7 @@ if ($login != str_replace($login) || $oldpwd != str_replace($oldpwd) || $newpwd 
 if (!($sql = mysqli_connect("localhost", "root", "superpass")))
 	return (print("Error a se connecter.\n"));
 
-mysqli_select_db($sql, "edegcs");
+mysqli_select_db($sql, "edegsc");
 if (!mysqli_fetch_array(mysqli_query($sql, "SELECT * FROM Users WHERE login='".mysqli_real_escape_string($sql, $login)."';")))
 		return (print("Compte Inexistant.\n"));
 

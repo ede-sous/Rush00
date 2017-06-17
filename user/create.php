@@ -9,7 +9,7 @@ if ($login != str_replace(" ", "", $login) || $passwd != str_replace(" ", "", $p
 if (!($sql = mysqli_connect("localhost", "root", "superpass")))
 	return (print("Error connecting to localhost.\n"));
 
-mysqli_select_db($sql, "edegcs");
+mysqli_select_db($sql, "edegsc");
 if (!($query = mysqli_query($sql, "SELECT * FROM Users WHERE login='".mysqli_real_escape_string($sql, $login)."';")))
 	return (print("There is no Users table.\n"));
 if (mysqli_fetch_array($query))
