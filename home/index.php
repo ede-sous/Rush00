@@ -1,7 +1,7 @@
 <?PHP
 session_start();
-include("../user/db.php");
-include("../user/auth.php");
+include("../functions/db.php");
+include("../functions/auth.php");
 $sql = db_ini();
 if (auth($_SESSION['login'], $_SESSION['passwd'], $sql) == false)
 {

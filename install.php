@@ -5,7 +5,6 @@ $sql = mysqli_connect("localhost", "root", "superpass");
 if (!mysqli_query($sql, "CREATE DATABASE edegsc"))
 	return (print("Databases and Tables already installed.\n"));
 
-
 mysqli_select_db($sql, "edegsc");
 
 if (!(mysqli_query($sql, "CREATE TABLE Users (
@@ -20,12 +19,13 @@ if (!(mysqli_query($sql, "CREATE TABLE products (
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
 	color VARCHAR(255) NOT NULL,
-	cereals VARCHAR(255) NOT NULL,
+	degree VARCHAR(255) NOT NULL,
 	price FLOAT NOT NULL,
+	country VARCHAR(255) NOT NULL,
 	PRIMARY KEY (id));")))
 	return (print("Problem creating the table.\n"));
 
-if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `cereals`, `price`) VALUES (NULL,'chimay','blonde', 'houblon', '1.65')")))
+if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`) VALUES (NULL,'chimay','blonde', '4.8-10%', '1.65', 'Belgique')")))
 	return (print("Problem creating beer.\n"));
 
 if (!(mysqli_query($sql,"INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL,'ede-sous','".hash("whirlpool", "patate")."', '1')")))

@@ -1,6 +1,6 @@
 <?PHP
 session_start();
-include("./auth.php");
+include("../functions/auth.php");
 
 if (!($sql = mysqli_connect("localhost", "root", "superpass")))
 	return (print('<html><body><button><a href="../home/index.php">Connection échoué !</a></button></body></html>'));
