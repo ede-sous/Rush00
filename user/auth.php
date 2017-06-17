@@ -1,14 +1,14 @@
 <?PHP
 function auth($login, $passwd)
 {
+	if (!($sql = mysqli_connect("localhost", "root", "superpass")))
+		return (false);
+
+	mysqli_select_db($sql, "edegcs");
 	$pwd = hash("whirlpool", $passwd);
-	$file = "./private/passwd";
-	$tab = unserialize(file_get_contents($file));
-	foreach ($tab as $case)
-	{
-		if ($login == $case['login'] && $pwd == $case['passwd'])
-			return (true);
-	}
-	return (false);
+	if (!(mysqli_fetch_array(mysqli_query($sql, "SELECT * FROM Users WHERE login='".mysqli_real_escape_string($sql, $login)."' and passwd='".mysqli_real_escape_string($sql, $pwd)."';"))))
+		return (false);
+	mysqli_close($sql);
+	return (true);
 }
 ?>
