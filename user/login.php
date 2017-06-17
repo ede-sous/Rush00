@@ -16,7 +16,7 @@ if (auth($login, $passwd) == true)
 {
 	$_SESSION['logged_on_user'] = $_GET['login'];
 	//header('Location: ../home/acceuil.html');
-	echo '<html><body><button><a href="../home/acceuil.html">vous êtes connecté</a></button></body></html>';
+	echo '<html><body><button><a href="../home/index.html">vous êtes connecté</a></button></body></html>';
 }
 else
 {
