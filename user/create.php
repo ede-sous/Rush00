@@ -1,35 +1,17 @@
 <?PHP
-if (file_exists("./private") == false)
-	mkdir("./private", 0700, true);
-if (file_exists("./private/passwd") == true)
-{
-	$tab = unserialize(file_get_contents("./private/passwd"));
-	foreach($tab as $elem)
-	{
-		if ($_POST['login'] == $elem['login'])
-		{
-			echo "ERROR\n";
-			return;
-		}
-	}
-}
 if($_POST['submit'] != "OK" || $_POST['login'] == "" || $_POST['passwd'] == "")
-{
-	echo "ERROR\n";
-	return ;
-}
-$tab[] = array("login" => $_POST['login'] , "passwd" => hash(whirlpool, $_POST['passwd']));
-$data = serialize($tab);
-if (file_exists("./private") == false)
-{
-	echo "ERROR\n";
-	return ;
-}
-if(@file_put_contents("./private/passwd", $data))
-	echo "OK\n";
-else
-{
-	echo "ERROR\n";
-	return ;
-}
+	return (print("ERROR\n"));
+
+if (!($sql = mysqli_connect("localhost", "root", "superpass")))
+	return (print("Error connecting to localhost.\n"));
+
+mysqli_select_db($sql, "edegcs");
+
+if (mysqli_fetch_array(mysqli_query($sql, "SELECT * FROM Users WHERE login='".mysqli_real_escape_string($sql, $_POST["login"])."';")))
+	return (print("Compte deja existant !\n"));
+
+mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL, '".mysqli_real_escape_string($sql, $_POST["login"])."', '".mysqli_real_escape_string($sql, hash("whirlpool", $_POST["passwd"]))."', '0')");
+
+mysqli_close($sql);
+print("Success\n");
 ?>
