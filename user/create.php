@@ -1,7 +1,8 @@
 <?PHP
 if($_POST['submit'] != "OK" || $_POST['login'] == "" || $_POST['passwd'] == "")
 	return (print("ERROR\n"));
-
+if ($_POST['login'] != str_replace(" ", "", $_POST['login']) || $_POST['passwd'] != str_replace(" ", "", $_POST['passwd']))
+	return (print("Contient des espaces.\n"));
 if (!($sql = mysqli_connect("localhost", "root", "superpass")))
 	return (print("Error connecting to localhost.\n"));
 
