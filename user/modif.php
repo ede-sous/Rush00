@@ -7,7 +7,7 @@ if($_POST['submit'] !== "OK" || $login === ""|| $oldpwd === ""|| $newpwd === "")
 	return (print("ERROR\n"));
 if ($oldpwd === $newpwd)
 	return (print("Le nouveau mot de passe est identique au ancien.\n"));
-if ($login != str_replace($login) || $oldpwd != str_replace($oldpwd) || $newpwd != str_replace($newpwd))
+if ($login != str_replace(" ", "", $login) || $oldpwd != str_replace(" ", "", $oldpwd) || $newpwd != str_replace(" ", "", $newpwd))
 	return (print("Contient des Espaces.\n"));
 
 if (!($sql = mysqli_connect("localhost", "root", "superpass")))
