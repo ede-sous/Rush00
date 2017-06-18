@@ -26,5 +26,5 @@ if ($qry != NULL)
 }
 ?>
 <SCRIPT LANGUAGE="JavaScript">
-document.location.href="../user/panier.php"
+document.location.href="../user/login_one.php"
 </SCRIPT>
