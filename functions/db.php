@@ -18,7 +18,11 @@ function db_fetch($sql, $cmd)
 {
 	if (!($query = mysqli_query($sql, $cmd)))
 		return (FALSE);
-	$info = mysqli_fetch_array($query);
+    $info = array();
+	while ($res = mysqli_fetch_array($query))
+        if ($res)
+            $info[] = $res;
+    print_r($info);
 	return ($info);
 }
 
