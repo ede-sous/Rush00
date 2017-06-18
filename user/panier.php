@@ -5,8 +5,12 @@ $sql = db_ini();
 //print_r($_SESSION['id_prod']);
 if ($_SESSION['id_prod'])
 {
-	foreach ($_SESSION['id_prod'] as $elem)
-		if (!($qry[] = mysqli_fetch_assoc(mysqli_query($sql, 'SELECT * FROM `products` WHERE id="'.$elem.'"'))));
+	$tab_id = array_count_values($_SESSION['id_prod']);
+	//print_r($tab_id);
+	foreach ($tab_id as $i => $elem)
+	{
+		if (!($qry[] = mysqli_fetch_assoc($query = mysqli_query($sql, 'SELECT * FROM `products` WHERE id="'.$i.'"'))));
+	}
 }
 //print_r($qry);
 if ($qry != NULL)
@@ -15,16 +19,23 @@ if ($qry != NULL)
 	{
 		if ($elem)
 		{
-			echo '
-		<html>
-			<div>
-				<div>name:'.$elem['name'].'</div>
-				<div>degrees:'.$elem['degree'].'</div>
-				<div>provenance:'.$elem['country'].'</div>
-				<div>price:'.$elem['price'].'</div>
-			</div>
-		</html>';
+?>
+<html>
+	<div stylsheet="display:flex">
+		<div stylesheet="display:flex" style="width:15%;" >name: <?=$elem['name']?></div>
+		<div style="width:15%;">quantite: <?=$tab_id[$elem['id']]?></div>
+		<div style="width:15%">degrees: <?=$elem['degree']?></div>
+		<div style="width:15%">provenance: <?=$elem['country']?></div>
+		<div style="width:15%">price: <?=$elem['price']?></div>
+	</div>
+
+<?PHP
+		$cout = $cout + ($elem['price'] * $tab_id[$elem['id']]);
 		}
 	}
+?>
+	<div>Cout total: <?= $cout;?> euros</div>
+</html>
+<?PHP
 }
 ?>
