@@ -25,9 +25,9 @@ if ($qry != NULL)
 	}
 	if (auth($_SESSION['login'], $_SESSION['passwd'] == false))
 	{?>
-<SCRIPT LANGUAGE="JavaScript">
-document.location.href="../user/login_one.php"
-</SCRIPT>
+		<SCRIPT LANGUAGE="JavaScript">
+		document.location.href="../user/login_one.php"
+		</SCRIPT>
 <?PHP
 	}
 	else
@@ -37,5 +37,5 @@ document.location.href="../user/login_one.php"
 }
 ?>
 <SCRIPT LANGUAGE="JavaScript">
-document.location.href="../user/login_one.php"
+document.location.href="../user/succes.php"
 </SCRIPT>

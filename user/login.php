@@ -20,8 +20,8 @@ if (auth($login, $passwd, $sql) == true)
 else
 {
 	$_SESSION['logged_on_user'] = "";
-	header("Location: ../home/index.php");
+	header("Location: ../user/login_one.php");
 }
-	mysqli_close($sql);
-    header("Location: ../home/index.php");
+mysqli_close($sql);
+header("Location: ../home/index.php");
 ?>

@@ -5,5 +5,8 @@
 			<input type="password" name="passwd" value="" /><br />
 			<button type="submit" name="submit" value="OK">submit</button>
 		</form>
+		<form action="../home/index.php">
+		<button type="submit" name="submit" value="OK">Acceuil</button>
+		</form>
 	</body>
 </html>
