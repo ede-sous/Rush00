@@ -6,7 +6,10 @@
     if (!$info = db_fetch($sql, "SELECT `admin` FROM `Users` WHERE login='".$_SESSION['login']."';"))
         header("Location: ../home/index.php");
     if ($_POST['BACK'] == "Go Back")
-        header("Location: ../home/index.php");
+		header("Location: ../home/index.php");
+	$query =  mysqli_query($sql, "SELECT * FROM `basket`");
+	while ($tab[] = mysqli_fetch_assoc($query));
+	//print_r($tab);
 ?>
 
 <html>
@@ -115,3 +118,44 @@
         </form>
 	</body>
 </html>
+<?PHP
+	$i = 0;
+	foreach ($tab as $elem)
+	{
+		if ($elem)
+		{
+			$tab_qt_cnt = explode("/", $elem['products_count']);
+			$qt_cnt = str_replace("=", " x ", $tab_qt_cnt);
+			foreach($qt_cnt as $elements)
+			{
+				if ($elements)
+					$product[$i++] = $elements;
+			}
+
+?>
+<html>
+	<head>
+	<title>Inst3grames</title>
+	<link rel ="stylesheet" href="../css/admin_panier.css">
+	</head>
+	<body>
+	<div id="conteneur">
+		<div class="list">login: <?=$elem['login']?></div>
+		<div class="product_case">products:<??></div>
+<?PHP
+		foreach($product as $elems)
+		{?>
+		<div class="product"><?= $elems;?></div>
+		<?PHP
+		}?>
+		<br />
+		<br />
+		<br />
+		<div class="product">price: <?=$elem['cost']?></div>
+	</div><br />
+	</body>
+	</html><?PHP
+		}
+	$product = "";
+	}
+?>

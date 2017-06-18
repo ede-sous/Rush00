@@ -23,19 +23,12 @@ if ($qry != NULL)
 			$buy[] = array("id" =>"$elem[id]", "cost" => "$cost", "quantite" => "$quanti");
 		}
 	}
-	if (auth($_SESSION['login'], $_SESSION['passwd'] == false))
-	{?>
-		<SCRIPT LANGUAGE="JavaScript">
-		document.location.href="../user/login_one.php"
-		</SCRIPT>
-<?PHP
-	}
+	if (auth($_SESSION['login'], $_SESSION['passwd'], $sql) == false)
+		return (header('location: ../user/login_one.php'));
 	else
 	{
 		if(!(mysqli_query($sql, "INSERT INTO `basket` (`id`, `login`, `products_count`,`cost`) VALUES (NULL, '".$_SESSION['login']."','".$products_count."','".$cost."');")));
 	}
+	header('location: ../user/succes.php');
 }
 ?>
-<SCRIPT LANGUAGE="JavaScript">
-document.location.href="../user/succes.php"
-</SCRIPT>

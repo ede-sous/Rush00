@@ -1,0 +1,35 @@
+#conteneur{
+	width:60%;
+	height:20%;
+	background-color:#bebece;
+	border-radius:10px 10px 10px;:
+}
+
+.list {width:16%;
+	height:85%;
+	float:left;
+	position:relative;
+	text-align:center;
+	display:inline-block;
+	margin-top: 2%;
+}
+.list img {
+	width: 36%;
+	position:relative;
+	height: 105%;
+	margin-top: -13%;
+}
+
+.product_case {
+	width:32%;
+	position:relative;
+	display:inline-block;
+	float:left;
+}
+
+.product {
+	width:32%;
+	position:relative;
+	display:inline-block;
+	float:left;
+}
