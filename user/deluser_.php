@@ -1,5 +1,14 @@
+<?php
+include("../functions/db.php");
+include("../functions/auth.php");
+$sql = db_ini();
+if (auth($_SESSION['login'], $_SESSION['passwd'], $sql) == false)
+	header('location: ../home/index.php');
+?>
+
 <html>
     <head>
+        <title>Inst3grames</title>
         <style>
         .t1 {
             text-align: center;

@@ -36,10 +36,12 @@ if (!(mysqli_query($sql, "CREATE TABLE basket (
 	return (print("Problem creating the table.\n"));
 
 $info = get_products();
-foreach($info as $elem)
-if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`, `img`) VALUES (NULL,'".$elem[0]."','".$elem[1]."', '".$elem[2]."', '".$elem[3]."', '".$elem[4]."', '".$elem[5]."');")))
-	return (print("Problem creating beer.\n"));
 
+foreach($info as $elem)
+{
+	if (!(mysqli_query($sql,"INSERT INTO products (`id`, `name`, `color`, `degree`, `price`, `country`, `img`) VALUES (NULL,'".$elem[0]."','".$elem[1]."', '".$elem[2]."', '".$elem[3]."', '".$elem[4]."', '".$elem[5]."');")))
+		return (print("Problem creating beer.\n"));
+}
 
 if (!(mysqli_query($sql,"INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL,'ede-sous','".hash("whirlpool", "patate")."', '1');")))
 	return (print("Problem creating the admin.\n"));

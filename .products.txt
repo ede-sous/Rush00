@@ -1,20 +1,20 @@
-Chimay|Blonde|4.8%|1.65|Belgique|../img/Chimay.png
-Super Bock|Ambree|5.2%|2.40|Portugal|../img/Super Bock.png
-Heineken|Blonde|5%|3.25|Pays-Bas|../img/Heineken.png
-Leffe|Blonde|6.5%|5.60|Belgique|../img/Leffe.png
-Pelforth|Blonde|5.8%|3.10|France|../img/Pelforth.png
-Fischer|Blonde|6%|1.90|France|../img/Fischer.png
-1664|Blonde|5.5%|2.10|France|../img/1664.png
-Kronenbourg|Blonde|5.3%|3.20|France|../img/Kronenbourg.png
-La Chouffe|Blonde|8%|2.90|Belgique|../img/La Chouffe.png
-Sagres|Blonde|5.1%|2.00|Portugal|../img/Sagres.png
-Duff|Blonde|4.9%|2.70|Allemagne|../img/Duff.png
-8.6|Blonde|8.6%|2.50|Pays-Bas|../img/8.6.png
-Newcastle|Ambree|4.7%|2.30|Angleterre|../img/Newcastle.png
-Hoegaarden|Blanche|4.9%|1.80|Belgique|../img/Hoegaarden.png
-Affligem|Blonde|7%|2.60|Belgique|../img/Affligem.png
-Rince Cochon|Blonde|8.5%|3.00|Belgique|../img/Rince Cochon.png
-Kilkenny|Ambree|4.3%|3.00|Irlande|../img/Kilkenny.png
-Carlsberg|Blonde|7.2%|2.20|Danemark|../img/Carlsberg.png
-Tsingtao|Blonde|4.7%|2.50|Chine|../img/Tsingtao.png
-Guiness|Brune|7.5%|3.10|Irlande|../img/Guiness.png
+Chimay|Blonde|4.8|1.65|Belgique|../img/Chimay.png
+Super Bock|Ambree|5.2|2.40|Portugal|../img/Super Bock.png
+Heineken|Blonde|5|3.25|Pays-Bas|../img/Heineken.png
+Leffe|Blonde|6.5|5.60|Belgique|../img/Leffe.png
+Pelforth|Blonde|5.8|3.10|France|../img/Pelforth.png
+Fischer|Blonde|6|1.90|France|../img/Fischer.png
+1664|Blonde|5.5|2.10|France|../img/1664.png
+Kronenbourg|Blonde|5.3|3.20|France|../img/Kronenbourg.png
+La Chouffe|Blonde|8|2.90|Belgique|../img/La Chouffe.png
+Sagres|Blonde|5.1|2.00|Portugal|../img/Sagres.png
+Duff|Blonde|4.9|2.70|Allemagne|../img/Duff.png
+8.6|Blonde|8.6|2.50|Pays-Bas|../img/8.6.png
+Newcastle|Ambree|4.7|2.30|Angleterre|../img/Newcastle.png
+Hoegaarden|Blanche|4.9|1.80|Belgique|../img/Hoegaarden.png
+Affligem|Blonde|7|2.60|Belgique|../img/Affligem.png
+Rince Cochon|Blonde|8.5|3.00|Belgique|../img/Rince Cochon.png
+Kilkenny|Ambree|4.3|3.00|Irlande|../img/Kilkenny.png
+Carlsberg|Blonde|7.2|2.20|Danemark|../img/Carlsberg.png
+Tsingtao|Blonde|4.7|2.50|Chine|../img/Tsingtao.png
+Guiness|Brune|7.5|3.10|Irlande|../img/Guiness.png

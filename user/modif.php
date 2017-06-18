@@ -15,6 +15,8 @@ $login = mysqli_real_escape_string($sql, $_POST["login"]);
 $oldpwd = mysqli_real_escape_string($sql, $_POST["oldpwd"]);
 $newpwd = mysqli_real_escape_string($sql, $_POST["newpwd"]);
 
+if (auth($_SESSION['login'], $_SESSION['passwd'], $sql) == false)
+	header('location: ../home/index.php');
 if($_POST['submit'] !== "OK" || $login === ""|| $oldpwd === ""|| $newpwd === "")
 	return (err($sql));
 if ($oldpwd === $newpwd)

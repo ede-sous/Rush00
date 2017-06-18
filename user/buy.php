@@ -28,7 +28,7 @@ if ($qry != NULL)
 	else
 	{
 		if(!(mysqli_query($sql, "INSERT INTO `basket` (`id`, `login`, `products_count`,`cost`) VALUES (NULL, '".$_SESSION['login']."','".$products_count."','".$cost."');")));
-	}
+    }
 	header('location: ../user/succes.php');
 }
 ?>

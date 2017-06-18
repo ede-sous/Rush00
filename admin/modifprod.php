@@ -1,13 +1,15 @@
 <?PHP
 session_start();
 include("./auth_prod.php");
+include("../functions/auth.php");
 include("../functions/db.php");
 
 if ($_POST['modifprod'] !== "OK")
     return (header("Location: ./admin.php"));
 
 $sql = db_ini();
-
+if (auth($_SESSION['login'], $_SESSION['passwd'], $sql) == false)
+	header('location: ../home/index.php');
 $name = mysqli_real_escape_string($sql, $_POST['name']);
 $oprice = mysqli_real_escape_string($sql, $_POST['oldprice']);
 $nprice = mysqli_real_escape_string($sql, $_POST['newprice']);

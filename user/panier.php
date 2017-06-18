@@ -43,7 +43,10 @@ if ($qry != NULL)
 	<div>Cout total: <?= $cout;?> euros</div>
 	<form method="post" action="./buy.php">
 	<input type="submit" value="Acheter"/>
-	</form>
+    </form>
+    <form action="../user/delbask.php" method="post">
+        <input type="submit" name="Delete" value="Delete" value/>
+    </form>
 	<form action="../home/index.php">
 	<input type="submit" value="Acceuil"/>
 	</form>

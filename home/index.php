@@ -19,6 +19,7 @@ else
 }
 ?>
 <html>
+<div style="background-image:url(http://newvaudevillebrewco.com/wp-content/uploads/2014/09/31.jpg); width:100%; height:100%;">
 	<head>
 		<meta charset="utf-8"/>
 		<title>Inst3grames</title>
@@ -30,16 +31,17 @@ else
 		<a href="../home/index.php">Accueil</a>
 		</li>
 		<li>
-			<a href="#">Nos bières</a>
-			<ul>
-				<li><a href="#">Blondes</a></li>
-				<li><a href="#">Brunes</a></li>
-				<li><a href="#">Ambrées</a></li>
-				<li><a href="#">Fortes</a></li>
-				<li><a href="#">Légères</a></li>
-				<li><a href="#">Classique</a></li>
-			</ul>
-		</li>
+            <form> <select name="type">
+                <option>Toutes</option>
+				<option>Blonde</option>
+				<option>Brune</option>
+				<option>Ambree</option>
+				<option>Fortes</option>
+				<option>Légères</option>
+            </select>
+            <input style="position:relative; width:90%; height: 50%;" type="submit" name="sent" value="OK"></input>
+        </form>
+        </li>
 		<li>
 			<a href="../user/panier.php">Panier</a>
 		</li>
@@ -71,8 +73,16 @@ else
 		</ul>
 	</header><br/><br/>
     <body>
+<div style="position: absolute; float: left; align:center;">
 <?PHP
-$info = db_fetch($sql, "SELECT * FROM `products`");
+        if ($_GET['type'] === "Fortes")
+            $info = db_fetch($sql, "SELECT * FROM products WHERE degree>='7';");
+        else if ($_GET['type'] === "Légères")
+            $info = db_fetch($sql, "SELECT * FROM products WHERE degree<'7';");
+        else if ($_GET['type'] !== "Toutes" && $_GET['type'])
+            $info = db_fetch($sql, "SELECT * FROM products WHERE color='".mysqli_real_escape_string($sql, $_GET['type'])."'");
+        else
+            $info = db_fetch($sql, "SELECT * FROM products;");
 foreach($info as $elem)
 {
     if ($elem)

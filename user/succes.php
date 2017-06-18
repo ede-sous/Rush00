@@ -9,6 +9,7 @@ else
 {?>
 <html>
 	<head>
+        <title>Inst3grames</title>
 	</head>
 	<body>
 	<form action="../home/index.php">
@@ -18,4 +19,5 @@ else
 </html>
 <?PHP
 }
+    $_SESSION['id_prod'] = "";
 ?>
