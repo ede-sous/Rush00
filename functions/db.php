@@ -22,7 +22,6 @@ function db_fetch($sql, $cmd)
 	while ($res = mysqli_fetch_array($query))
         if ($res)
             $info[] = $res;
-    print_r($info);
 	return ($info);
 }
 
