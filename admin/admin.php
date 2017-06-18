@@ -1,3 +1,14 @@
+<?PHP
+    session_start();
+    include("../functions/db.php");
+    include("../functions/auth.php");
+    $sql = db_ini();
+    if (!$info = db_fetch($sql, "SELECT `admin` FROM `Users` WHERE login='".$_SESSION['login']."';"))
+        header("Location: ../home/index.php");
+    if ($_POST['BACK'] == "Go Back")
+        header("Location: ../home/index.php");
+?>
+
 <html>
 	<head>
 		<style>
@@ -6,26 +17,32 @@
                 position: relative;
                 background-color:black;
                 height:300px;
-                width:20%;
+                width:250px;
                 color:white;
+                border: 3px solid brown;
+                border-radius: 5px;
             }
             .t2 {
                 text-align: center;
                 position: relative;
                 background-color:black;
                 height:150px;
-                width:20%;
+                width:250px;
                 font-size: 18px;
                 color:white;
+                border: 3px solid brown;
+                border-radius: 5px;
             }
             .t3 {
                 text-align: center;
                 position: relative;
                 background-color:black;
                 height:300px;
-                width:20%;
+                width:250px;
                 font-size: 18px;
                 color:white;
+                border: 3px solid brown;
+                border-radius: 5px;
             }
             .i {
                 position: absolute;
@@ -36,9 +53,42 @@
                 position: relative;
                 width: 72%;
             }
+            h1{
+                text-align: center;
+                position:relative;
+                color:white;
+            }
+            header {
+                width:100%;
+                height:10%;
+                background-color:black;
+                position:relative;
+                border: 3px solid brown;
+                border-radius: 5px;
+            }
+            .m {
+                position: absolute;
+                left: 2%;
+                width: 75px;
+                background-color: white;
+                border: 3px solid brown;
+                border-radius: 5px;
+            }
+            .i3 {
+                position:relative;
+                text-align:center;
+                background-color:brown;
+                color:white;
+                border-radius:5px;
+                width: 75px;
+            }
 		</style>
-        <div class="" >
-        </div>
+        <header>
+            <br/><h1><u>Hello You Mighty One !</u></1>
+            <form class="m" method="post" action="admin.php">
+                <input class="i3" type="submit" name="BACK" value="Go Back"></input>
+            </form>
+        </header><br/>
 	</head>
 	<body>
 		<form class="t1" action="addprod.php" method="post">
