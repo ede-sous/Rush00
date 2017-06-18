@@ -8,7 +8,7 @@ mysqli_select_db($sql, "edegsc");
 function err($sql)
 {
 	mysqli_close($sql);
-	echo '<html><body><button><a href="../home/index_co.php">La modification du mot de passe a échoué.</a></button></body></html>';
+	echo '<html><body><button><a href="../home/index.php">La modification du mot de passe a échoué.</a></button></body></html>';
 }
 
 $login = mysqli_real_escape_string($sql, $_POST["login"]);
@@ -36,8 +36,8 @@ if ($res["passwd"] !== $oldpwd)
 
 mysqli_query($sql, "DELETE FROM Users WHERE login='".$login."';");
 mysqli_query($sql , "INSERT INTO `Users` (`id`, `login`, `passwd`, `admin`) VALUES (NULL, '".$login."', '".hash("whirlpool", $newpwd)."', '0')");
-
+$_SESSION['passwd'] = $newpwd;
 mysqli_close($sql);
 
-echo '<html><body><button><a href="../home/index_co.php">Mot de passe modifié avec succès.</a></button></body></html>';
+echo '<html><body><button><a href="../home/index.php">Mot de passe modifié avec succès.</a></button></body></html>';
 ?>
