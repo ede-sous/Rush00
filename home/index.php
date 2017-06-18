@@ -76,13 +76,13 @@ $info = db_fetch($sql, "SELECT * FROM `products`");
 foreach($info as $elem)
 {
     if ($elem)
-    {
+	{
 ?>
 		<div style="height:200px; width:140px; align:center; background-color:black; float:left; text-align:center; position:relative; border: 1px solid white; border-radius: 10px;"><br/>
 			<img style="width:85%; height:65%; top:18%;" src=<?PHP $elem['img'] ? print('"'.$elem['img'].'"') : print('"../img/as_no.png"')?>><br/>
 			<form action="../user/basket.php" method="post">
 			<a style="color:white;"><?PHP echo $elem['name'] ?> : <?PHP echo $elem['price'] ?>€</a>
-			<input type ="text" name="id" value="'.$elem['id'].'" hidden/><br/>
+			<input type ="text" name="id" value="<?=$elem['id']?>" hidden/><br/>
 			<input style="position:relative; width:85%; text-align:center;" type="submit" name="addppanier" value="Ajouter au Panier"></input>
 			</form>
 		</div>

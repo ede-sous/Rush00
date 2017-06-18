@@ -38,6 +38,9 @@ if ($qry != NULL)
 	<form method="post" action="./buy.php">
 	<input type="submit" value="Acheter"/>
 	</form>
+	<form action="../home/index.php">
+	<input type="submit" value="Accueil"/>
+	</form>
 </html>
 <?PHP
 }
