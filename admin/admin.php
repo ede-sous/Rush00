@@ -5,7 +5,7 @@
                 text-align: left;
                 position: relative;
                 background-color:black;
-                height:250px;
+                height:300px;
                 width:20%;
                 color:white;
             }
@@ -22,7 +22,7 @@
                 text-align: center;
                 position: relative;
                 background-color:black;
-                height:275px;
+                height:300px;
                 width:20%;
                 font-size: 18px;
                 color:white;
@@ -37,6 +37,8 @@
                 width: 72%;
             }
 		</style>
+        <div class="" >
+        </div>
 	</head>
 	<body>
 		<form class="t1" action="addprod.php" method="post">
@@ -46,6 +48,7 @@
             Degree:<input class="i" type="float" name="degree" value=""></input><br/><br/>
             Price :<input class="i" type="float" name="price" value=""></input><br/><br/>
             Country:<input class="i" type="text" name="country" value=""></input><br/><br/>
+            Image :<input class="i" type="text" name="img" value=""></input><br/><br/>
             <input style="position:relative; left:5%; width:90%; height: 50%;" type="submit" name="addprod" value="OK"></input>
         </form>
         <form class="t2" action="delprod.php" method="post">

@@ -15,7 +15,7 @@ else
 	$link1 = "../user/logout.php";
 	$link2 = "../user/modificate.php";
 	$phr1 = "Se deconnecter";
-	$phr2 = "Modifier le mot de passe";
+	$phr2 = "Mot de passe";
 }
 ?>
 <html>
@@ -49,29 +49,46 @@ else
 		<li>
 		<a href="<?PHP echo $link2; ?>"><?PHP echo $phr2; ?></a>
 		</li>
+<?PHP
+    if ($info = db_fetch($sql, "SELECT `admin` FROM `Users` WHERE login='".$_SESSION['login']."';"))
+        if ($info[0]['admin'] == 1)
+        {
+?>
+        <li>
+        <a href="../admin/admin.php">ADMIN</a>
+        </li>
+<?PHP
+        }
+        else if (auth($_SESSION['login'], $_SESSION['passwd'], $sql))
+        {
+?>
+        <li>
+        <a href="../user/deluser_.php">Effacer compte</a>
+        </li>
+<?PHP
+        }
+?>
 		</ul>
 	</header><br/><br/>
-<?
-//$tab = db_fetch($sql, "SELECT * FROM `products`");
-if (!($qry = mysqli_query($sql, "SELECT * FROM `products`")))
-	return (false);
-//print_r($qry);
-while ($info[] = mysqli_fetch_assoc($qry));
-//print_r($info);
+    <body>
+<?PHP
+$info = db_fetch($sql, "SELECT * FROM `products`");
 foreach($info as $elem)
 {
-	//print_r($elem);
     if ($elem)
-	echo '
-	<body>
-		<div style="height:200px; width:200px; align:center; background-color:black; float:left; text-align:center; position:relative; border: 1px solid white; border-radius: 10px;"><br/>
-			<img style="width:85%; height:65%; top:18%;" src="../imgs/superbock.jpeg"><br/>
+    {
+?>
+		<div style="height:200px; width:140px; align:center; background-color:black; float:left; text-align:center; position:relative; border: 1px solid white; border-radius: 10px;"><br/>
+			<img style="width:85%; height:65%; top:18%;" src=<?PHP $elem['img'] ? print('"'.$elem['img'].'"') : print('"../img/as_no.png"')?>><br/>
 			<form action="../user/basket.php" method="post">
-			<a style="color:white;">'.$elem['name'].' : '.$elem['price'].'€</a>
+			<a style="color:white;"><?PHP echo $elem['name'] ?> : <?PHP echo $elem['price'] ?>€</a>
 			<input type ="text" name="id" value="'.$elem['id'].'" hidden/><br/>
 			<input style="position:relative; width:85%; text-align:center;" type="submit" name="addppanier" value="Ajouter au Panier"></input>
 			</form>
 		</div>
-	</body>';
-}?>
+<?PHP
+    }
+}
+?>
+    </body>
 </html>

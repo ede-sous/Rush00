@@ -8,7 +8,7 @@ function get_products()
 	}
 $array = array_filter(explode("\n", $file));
 foreach($array as $elem)
-	$info[] = explode("/", $elem);
+	$info[] = explode("|", $elem);
 return ($info);
 }
 ?>

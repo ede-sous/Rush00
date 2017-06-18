@@ -21,7 +21,7 @@ if (!db_query($sql, "DELETE FROM `products` WHERE name='".$name."' and price='".
     return (header("Location: ./admin.php"));
 
 foreach($info as $elem)
-    if (!$elem || !db_query($sql, "INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`) VALUES (NULL, '".$name."','".$elem['color']."','".$elem['degree']."','".$nprice."','".$elem['$country']."');"))
+    if (!$elem || !db_query($sql, "INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`) VALUES (NULL, '".$name."','".$elem['color']."','".$elem['degree']."','".$nprice."','".$elem['country']."', '".$elem['img']."');"))
         break;
 return (header("Location: ../home/index.php"));
 ?>
