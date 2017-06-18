@@ -1,4 +1,5 @@
 <?PHP
+session_start();
 include("./auth_prod.php");
 include("../functions/db.php");
 
