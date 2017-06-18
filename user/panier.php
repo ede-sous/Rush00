@@ -21,13 +21,19 @@ if ($qry != NULL)
 			$buy[] = array("id" =>"$elem[id]", "cost" => "$cost", "quantite" => "$quanti");
 ?>
 <html>
-	<div stylsheet="display:flex">
-		<div stylesheet="display:flex" style="width:15%;" >name: <?=$elem['name']?></div>
-		<div style="width:15%;">quantite: <?=$tab_id[$elem['id']]?></div>
-		<div style="width:15%">degrees: <?=$elem['degree']?></div>
-		<div style="width:15%">provenance: <?=$elem['country']?></div>
-		<div style="width:15%">price: <?=$elem['price']?></div>
-	</div>
+	<head>
+	<title>Inst3grames</title>
+	<link rel ="stylesheet" href="../css/panier.css">
+	</head>
+	<body>
+	<div id="conteneur">
+		<div class="list"><img src="<?=$elem['img']?>"/></div>
+		<div class="list">name: <?=$elem['name']?></div>
+		<div class="list">quantite: <?=$tab_id[$elem['id']]?></div>
+		<div class ="list">degrees: <?=$elem['degree']?></div>
+		<div class="list">provenance: <?=$elem['country']?></div>
+		<div class="list">price: <?=$elem['price']?></div>
+	</div><br />
 
 <?PHP
 		$cout = $cout + ($elem['price'] * $tab_id[$elem['id']]);
@@ -39,8 +45,9 @@ if ($qry != NULL)
 	<input type="submit" value="Acheter"/>
 	</form>
 	<form action="../home/index.php">
-	<input type="submit" value="Accueil"/>
+	<input type="submit" value="Acceuil"/>
 	</form>
+</body>
 </html>
 <?PHP
 }
