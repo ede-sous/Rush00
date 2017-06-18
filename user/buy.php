@@ -1,6 +1,7 @@
 <?PHP
 session_start();
 include("../functions/db.php");
+include("../functions/auth.php");
 $sql = db_ini();
 if ($_SESSION['id_prod'])
 {
@@ -22,7 +23,17 @@ if ($qry != NULL)
 			$buy[] = array("id" =>"$elem[id]", "cost" => "$cost", "quantite" => "$quanti");
 		}
 	}
-	if(!(mysqli_query($sql, "INSERT INTO `basket` (`id`, `login`, `products_count`,`cost`) VALUES (NULL, '".$_SESSION['login']."','".$products_count."','".$cost."');")));
+	if (auth($_SESSION['login'], $_SESSION['passwd'] == false))
+	{?>
+<SCRIPT LANGUAGE="JavaScript">
+document.location.href="../user/login_one.php"
+</SCRIPT>
+<?PHP
+	}
+	else
+	{
+		if(!(mysqli_query($sql, "INSERT INTO `basket` (`id`, `login`, `products_count`,`cost`) VALUES (NULL, '".$_SESSION['login']."','".$products_count."','".$cost."');")));
+	}
 }
 ?>
 <SCRIPT LANGUAGE="JavaScript">
