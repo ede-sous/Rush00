@@ -44,18 +44,32 @@ else
 			<a href="#">panier</a>
 		</li>
 		<li>
-		<a href="<?PHP echo $link1;?>"><?PHP echo $phr1; ?></a>
+		<a href="<?PHP echo $link1;?>"><?= $phr1; ?></a>
 		</li>
 		<li>
 		<a href="<?PHP echo $link2; ?>"><?PHP echo $phr2; ?></a>
 		</li>
 		</ul>
 	</header>
+<?
+//$tab = db_fetch($sql, "SELECT * FROM `products`");
+if (!($qry = mysqli_query($sql, "SELECT * FROM `products`")))
+	return (false);
+//print_r($qry);
+while ($info[] = mysqli_fetch_assoc($qry));
+//print_r($info);
+foreach($info as $elem)
+{
+	//print_r($elem);
+	echo '
     <body>
         <div style="height:21%; width:14.5%; background-color:black; position:absolute; top:4%;">
-            <img style="width:85%; height:65%; position:relative; left:7.5%; top:5%;" src="../imgs/superbock.jpeg">
-            <a style="color:white; position:relative; top:11%; left:10%;">Super Bock : 2.4€</a>
+			<img style="width:85%; height:65%; position:relative; left:7.5%; top:5%;" src="../imgs/superbock.jpeg">
+			<form action="basket.php" method="post>
+			<a style="color:white; position:relative; top:11%; left:10%;">'.$elem['name'].' : '.$elem['price'].'€</a>
+			<input type ="text" name="product" value="'.$elem['id'].'" hidden/>
             <input style="position:relative; top:15%; left:7.5%; width:85%; text-align:center;" type="submit" name="addppanier" value="Ajouter au Panier"></input>
         </div>
-	</body>
+	</body>';
+}?>
 </html>
