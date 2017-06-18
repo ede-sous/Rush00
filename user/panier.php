@@ -12,13 +12,16 @@ if ($_SESSION['id_prod'])
 		if (!($qry[] = mysqli_fetch_assoc($query = mysqli_query($sql, 'SELECT * FROM `products` WHERE id="'.$i.'"'))));
 	}
 }
-//print_r($qry);
+print_r($qry);
 if ($qry != NULL)
 {
 	foreach ($qry as $elem)
 	{
 		if ($elem)
 		{
+			$quanti = $tab_id[$elem['id']];
+			$cost = $quanti * $elem['price'];
+			$buy[] = array("id" =>"$elem[id]", "cost" => "$cost", "quantite" => "$quanti");
 ?>
 <html>
 	<div stylsheet="display:flex">
@@ -35,7 +38,11 @@ if ($qry != NULL)
 	}
 ?>
 	<div>Cout total: <?= $cout;?> euros</div>
+	<form method="post" action="./buy.php">
+	<input type="submit" value="Acheter"/>
+	</form>
 </html>
 <?PHP
+	print_r($buy);
 }
 ?>
