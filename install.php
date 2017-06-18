@@ -27,6 +27,14 @@ if (!(mysqli_query($sql, "CREATE TABLE products (
 	PRIMARY KEY (id));")))
 	return (print("Problem creating the table.\n"));
 
+if (!(mysqli_query($sql, "CREATE TABLE basket (
+	id INT NOT NULL AUTO_INCREMENT,
+	login VARCHAR(255) NOT NULL,
+	products_count VARCHAR(255) NOT NULL,
+	cost FLOAT NOT NULL,
+	PRIMARY KEY (id));")))
+	return (print("Problem creating the table.\n"));
+
 $info = get_products();
 foreach($info as $elem)
 if (!(mysqli_query($sql,"INSERT INTO `products` (`id`, `name`, `color`, `degree`, `price`, `country`, `img`) VALUES (NULL,'".$elem[0]."','".$elem[1]."', '".$elem[2]."', '".$elem[3]."', '".$elem[4]."', '".$elem[5]."');")))
