@@ -41,7 +41,7 @@ else
 			</ul>
 		</li>
 		<li>
-			<a href="#">Panier</a>
+			<a href="../user/panier.php">Panier</a>
 		</li>
 		<li>
 		<a href="<?PHP echo $link1;?>"><?= $phr1; ?></a>
