@@ -22,9 +22,9 @@ if (auth($login, $passwd, $sql) == true)
 }
 else
 {
-	$_SESSION['logged_on_user'] = "";
-	session_destroy();
-	echo '<html><body><button><a href="../home/index.php">Connection échoué !</a></button></body></html>';
+	//$_SESSION['logged_on_user'] = "";
+	//session_destroy();
+	echo '<html><body><button><a href="../user/login_one.php">Connection échoué !</a></button></body></html>';
 }
 	mysqli_close($sql);
 ?>
