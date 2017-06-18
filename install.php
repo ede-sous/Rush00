@@ -20,7 +20,7 @@ if (!(mysqli_query($sql, "CREATE TABLE products (
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
 	color VARCHAR(255) NOT NULL,
-	degree VARCHAR(255) NOT NULL,
+	degree FLOAT NOT NULL,
 	price FLOAT NOT NULL,
 	country VARCHAR(255) NOT NULL,
 	img VARCHAR(255) NOT NULL,

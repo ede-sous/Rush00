@@ -20,7 +20,7 @@ if (auth($login, $passwd, $sql) == true)
 else
 {
 	$_SESSION['logged_on_user'] = "";
-	session_destroy();
+	header("Location: ../home/index.php");
 }
 	mysqli_close($sql);
     header("Location: ../home/index.php");

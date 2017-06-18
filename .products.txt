@@ -17,4 +17,4 @@ Rince Cochon|Blonde|8.5%|3.00|Belgique|../img/Rince Cochon.png
 Kilkenny|Ambree|4.3%|3.00|Irlande|../img/Kilkenny.png
 Carlsberg|Blonde|7.2%|2.20|Danemark|../img/Carlsberg.png
 Tsingtao|Blonde|4.7%|2.50|Chine|../img/Tsingtao.png
-Guiness|Noire|7.5%|3.10|Irlande|../img/Guiness.png
+Guiness|Brune|7.5%|3.10|Irlande|../img/Guiness.png
